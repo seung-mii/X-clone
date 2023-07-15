@@ -8,6 +8,7 @@ import { createGlobalStyle } from "styled-components";
 import reset from "styled-reset";
 import { useEffect, useState } from "react";
 import LoadingPage from "./components/loading";
+import { auth } from "./firebase";
 
 const router = createBrowserRouter([
   {
@@ -49,6 +50,9 @@ const GlobalStyles = createGlobalStyle`
 function App() {
   const [isLoading, setLoading] = useState(true);
   const init = async () => {
+    await auth.authStateReady(); 
+    // 초기 인증 상태가 해결되면 즉시 resolve되는 promise을 반환
+    // promise가 확인되면 현재 사용자는 유효한 사용자이거나 사용자가 로그아웃한 경우 null
     setLoading(false);
   };
 
