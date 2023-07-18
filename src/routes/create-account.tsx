@@ -37,22 +37,13 @@ export default function CreateAccount() {
     
     try {
       setLoading(true);
-
-      const credentials = await createUserWithEmailAndPassword(
-        auth,
-        email,
-        password
-      );
-
+      const credentials = await createUserWithEmailAndPassword(auth, email, password);
       await updateProfile(credentials.user, {
         displayName: name,
       });
-
       navigate("/");
     } catch (e) {
-      if (e instanceof FirebaseError) {
-        setError(e.message);
-      }
+      if (e instanceof FirebaseError) setError(e.message);
     } finally {
       setLoading(false);
     }
