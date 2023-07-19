@@ -1,3 +1,12 @@
+import { styled } from "styled-components";
+import Post from "../components/post";
+
+const Wrapper = styled.div``;
+
 export default function Home() {
-  return <h1>Home!</h1>;
+  return (
+    <Wrapper>
+      <Post />
+    </Wrapper>
+  );
 }

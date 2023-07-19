@@ -1,6 +1,8 @@
 // script 태그로 firebase를 추가
 import { initializeApp } from "firebase/app";
 import { getAuth } from "firebase/auth";
+import { getFirestore } from "firebase/firestore";
+import { getStorage } from "firebase/storage";
 
 const firebaseConfig = {
   apiKey: "AIzaSyAOJRX76hbh4ph3HjDv5yv9RwAy1ebruwM",
@@ -13,4 +15,6 @@ const firebaseConfig = {
 
 const app = initializeApp(firebaseConfig);
 
-export const auth = getAuth(app); // app에 대한 인증 서비스 사용
+export const auth = getAuth(app);       // app에 대한 인증 서비스 사용
+export const storage = getStorage(app); // 스토리지에 대한 엑세스 권한 얻기
+export const db = getFirestore(app);    // 데이터베이스에 대한 엑세스 권한 얻기
