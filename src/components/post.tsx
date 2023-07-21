@@ -94,9 +94,7 @@ export default function Post() {
 
       if (file) {
         // 업로드된 파일이 저장되는 폴더명과 파일명 지정
-        const locationRef = ref(
-          storage,
-          `tweets/${user.uid}-${user.displayName}/${doc.id}`
+        const locationRef = ref(storage, `tweets/${user.uid}/${doc.id}`
           // 업로드된 파일은 tweets/(유저 ID)/(문서 ID)에 저장됨
           // tweets라는 폴더 내에 유저가 올리는 모든 파일은 해당 유저의 폴더 안에 저장하고 이미지의 이름을 트윗의 ID로 하여 빨리 삭제하도록 함
         );
